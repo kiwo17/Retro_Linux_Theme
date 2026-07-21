@@ -1,2 +1,2 @@
-# hello-world
+# about me 
 this is for practice
