@@ -1,0 +1,35 @@
+ [General]
+ Description=Stray Cyberpunk 
+ Opacity=0.75
+
+ [Background]
+ Color=13,17,32
+
+ [Foreground]
+ Color=198,242,198
+
+ [Color0]
+ Color=13,17,32
+
+ [Color1]
+ Color=255,45,85
+
+ [Color2]
+ Color=45,230,194
+
+ [Color3]
+ Color=242,193,78
+
+ [Color4]
+ Color=43,108,255
+
+ [Color5]
+ Color=162,75,255
+
+ [Color6]
+ Color=57,212,255
+
+ [Color7]
+ Color=215,226,255
+ 
+ 
