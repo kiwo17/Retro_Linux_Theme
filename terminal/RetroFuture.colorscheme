@@ -1,35 +1,35 @@
  [General]
- Description=Stray Cyberpunk 
+ Description=Retro Future HUD 
  Opacity=0.75
 
  [Background]
- Color=13,17,32
+ Color=10,10,12
 
  [Foreground]
- Color=198,242,198
+ Color=61,255,136
 
  [Color0]
  Color=13,17,32
 
  [Color1]
- Color=255,45,85
+ Color=255,59,59
 
  [Color2]
- Color=0,255,0
+ Color=47,111,237
 
  [Color3]
- Color=242,193,78
+ Color=255,179,71
 
  [Color4]
  Color=0,128,128
 
  [Color5]
- Color=162,75,255
+ Color=255,122,89
 
  [Color6]
  Color=240,255,240
 
  [Color7]
- Color=255,182,193
+ Color=245,239,230
  
  
