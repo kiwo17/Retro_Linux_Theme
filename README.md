@@ -3,6 +3,8 @@
 Up-cycling an old MacBook Pro to a custom cyber deck! 
 In this project I built my own custom retro cyber deck Theme. 
 
+![HUD](photos/finishedHUD.png)
+
 PS: This project has been fully adapted to the hardware, operating system and the graphic environment of my old MacBook Pro. 
 Therefore the configurations and code in this repository may most likely not work as expected on other computers unless you 
 happen to have a similar setup.  
@@ -76,5 +78,7 @@ I'm working with two Computers:
 I've decided to code on one computer and push/pull to the other. In that way I cannot only practice my Git Version Control 
 skills but also my organization skills. 
 
-## Requirements 
+## Do it you it yourself
+
+If you would like to try this out here is a [simple guide](guide/guide.md)
 
