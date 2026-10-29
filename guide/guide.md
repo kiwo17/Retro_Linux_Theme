@@ -4,9 +4,9 @@ This is a do it your self guide, so feel free to customize it.
 
 ## Requirements 
 
-	- ![Parrot OS Home](https://www.parrotsec.org/download/) with KDE Plasma
+- [Parrot OS Home](https://www.parrotsec.org/download/) with KDE Plasma
 	
-	- At least 4GB
+- At least 4GB
 
 ## Conky HUD
 
@@ -37,10 +37,60 @@ conky.config = { ... } is a table of settings: where the window sits, how big it
 conky.text = [[ ... ]] is the content. ${...} placeholders are replaced with live data (${cpu} becomes your CPU percentage).
 
 Add settings one at a time and restart conky after each step so you can see what each one does.
-	
-### Settings & what it does
+
+### Content of .conf:
+
+	conky.config = {
+    	alignment = 'top_middle',
+    	gap_y = 0,
+    	gap_x = 0,
+    	border_inner_margin = 10,
+    	border_width = 0,
+    	border_outer_margin = 0,
+	    own_window = true,
+    	own_window_type = 'normal',
+    	own_window_class = 'conky-retro-hud',
+    	own_window_transparent = false,
+    	own_window_argb_visual = true,
+    	own_window_argb_value = 190,
+    	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+    	update_interval = 2,
+    	total_run_times = 0,
+    	double_buffer = true,
+    	use_xft = true,
+    	font = 'Monospace:size=11',
+    	default_color = '00FF00',
+    	color1 = '00FF00',
+    	color2 = '2F6FED',
+    	color3 = 'FF3B3B',
+    	color4 = '00FFFF',
+    	draw_graph_borders = false,
+    	minimum_width = 1280,
+    	maximum_width = 1280,
+	}
+
+	conky.text = [[
+    	${color1}${goto 8}⌜${goto 1272}⌝${color}
+		${voffset 4}${goto 20}${font Monospace:size=20}${color1}» USER:${color} ${color4}${exec whoami}${color}${font Monospace:size=11}${alignr 8}${color4}${time %H:%M:%S}${color} ${color1}● ${color}${color4}${time %A, %d %B}${color}
+    	${voffset 6}${goto 20}${color1}››› SYSTEM ONLINE ‹‹‹${color}
+    	${voffset 4}${goto 8}${color1}────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────${color}
+    	${voffset 8}${goto 500}${cpugraph cpu0 30,100 00FF00 00FF00}${goto 650}${memgraph 30,100 00FF00 00FF00}
+    	${voffset 2}${goto 530}${color4}______________${color}${goto 650}${color4}______________${color}
+    	${voffset 4}${goto 526}${color1}CPU${color} ${cpu}%${goto 637}${color1}RAM${color} ${mem} / ${memmax}
+    	${voffset 4}${color1}${goto 8}⌞${goto 1272}⌟${color}
+
+	]]
 
 
+### IMPORTANT
+
+All the pixel numbers are tuned for a 1280×800 screen. On another resolution, change the width and the goto values.
+The row of ─ characters is a hand-drawn rule: add or remove characters until it ends at the right corner.
+
+### Settings 
+
+| Setting | What it does |
+|---|---|
 | `alignment = 'top_middle'` | Anchors the window to the top of the screen |
 | `gap_x, gap_y = 0` | No offset from the screen edge |
 | `own_window = true` | Conky draws its own window instead of painting on the wallpaper |
@@ -54,6 +104,7 @@ Add settings one at a time and restart conky after each step so you can see what
 | `minimum_width, maximum_width = 1280` | Full width of a 1280×800 screen |
 | `border_inner_margin, border_width, border_outer_margin` | Padding inside the window. Set them explicitly: the defaults are not guaranteed to be 0 |
 | `draw_graph_borders = false` | No box around the graphs |
+
 
 #### The layout
 
@@ -72,55 +123,6 @@ Add settings one at a time and restart conky after each step so you can see what
 
 
 The symbols ⌜, ⌝, ⌞, ⌟, ›, ‹, ● ─ are plain Unicode characters, so they need no special syntax.
-	
-### Content of .conf:
-
-conky.config = {
-    alignment = 'top_middle',
-    gap_y = 0,
-    gap_x = 0,
-    border_inner_margin = 10,
-    border_width = 0,
-    border_outer_margin = 0,
-    own_window = true,
-    own_window_type = 'normal',
-    own_window_class = 'conky-retro-hud',
-    own_window_transparent = false,
-    own_window_argb_visual = true,
-    own_window_argb_value = 190,
-    own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
-    update_interval = 2,
-    total_run_times = 0,
-    double_buffer = true,
-    use_xft = true,
-    font = 'Monospace:size=11',
-    default_color = '00FF00',
-    color1 = '00FF00',
-    color2 = '2F6FED',
-    color3 = 'FF3B3B',
-    color4 = '00FFFF',
-    draw_graph_borders = false,
-    minimum_width = 1280,
-    maximum_width = 1280,
-}
-
-conky.text = [[
-    ${color1}${goto 8}⌜${goto 1272}⌝${color}
-    ${voffset 4}${goto 20}${font Monospace:size=20}${color1}» USER:${color} ${color4}${exec whoami}${color}${font Monospace:size=11}${alignr 8}${color4}${time %H:%M:%S}${color} ${color1}● ${color}${color4}${time %A, %d %B}${color}
-    ${voffset 6}${goto 20}${color1}››› SYSTEM ONLINE ‹‹‹${color}
-    ${voffset 4}${goto 8}${color1}────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────${color}
-    ${voffset 8}${goto 500}${cpugraph cpu0 30,100 00FF00 00FF00}${goto 650}${memgraph 30,100 00FF00 00FF00}
-    ${voffset 2}${goto 530}${color4}______________${color}${goto 650}${color4}______________${color}
-    ${voffset 4}${goto 526}${color1}CPU${color} ${cpu}%${goto 637}${color1}RAM${color} ${mem} / ${memmax}
-    ${voffset 4}${color1}${goto 8}⌞${goto 1272}⌟${color}
-
-]]
-
-
-### IMPORTANT
-
-All the pixel numbers are tuned for a 1280×800 screen. On another resolution, change the width and the goto values.
-The row of ─ characters is a hand-drawn rule: add or remove characters until it ends at the right corner.
 
 ### Run it 
 
@@ -137,16 +139,16 @@ Optional: start it at login
 
 1. Copy the config to the place conky usually reads from, then create an autostart entry. Replace YOURNAME with your username.
 
-	mkdir -p $HOME/.config/conky $HOME/.config/autostart
-	cp conky/retro-hud.conf $HOME/.config/conky/
+		mkdir -p $HOME/.config/conky $HOME/.config/autostart
+		cp conky/retro-hud.conf $HOME/.config/conky/
 
 2. Then reate $HOME/.config/autostart/retro-hud.desktop:
 
-	[Desktop Entry]
-	Type=Application
-	Name=Retro Future HUD
-	Exec=conky -p 4 -c /home/YOURNAME/.config/conky/retro-hud.conf
-	Hidden=false
+		[Desktop Entry]
+		Type=Application
+		Name=Retro Future HUD
+		Exec=conky -p 4 -c /home/YOURNAME/.config/conky/retro-hud.conf
+		Hidden=false
 
 -p 4 makes conky wait 4 seconds so the desktop is ready before the HUD appears. You can also add it through System Settings → Autostart.
 
