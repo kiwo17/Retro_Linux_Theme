@@ -5,6 +5,8 @@ In this project I built my own custom retro cyber deck Theme.
 
 ![HUD](photos/finishedHUD.png)
 
+[ ![thumbnail](photos/thumbnail.png) ](https://vimeo.com/1241839984)
+
 PS: This project has been fully adapted to the hardware, operating system and the graphic environment of my old MacBook Pro. 
 Therefore the configurations and code in this repository may most likely not work as expected on other computers unless you 
 happen to have a similar setup.  
